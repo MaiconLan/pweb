@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Teste</title>
+</h:head>
+
+<h:body>
+	<h:form id="formCliente">
+		<p:growl autoUpdate="true" />
+		<p:panel id="panelCliente" header="Cliente">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome:" for="nome" />
+				<p:inputText id="nome" value="#{pessoaController.pessoa.nome}"
+					required="true" requiredMessage="Campo nome obrigatório" />
+				<p:outputLabel for="idade" value="Idade" />
+				<p:inputText id="idade" value="#{pessoaController.pessoa.idade}"
+					required="true" requiredMessage="Campo idade obrigatório">
+					<f:validateLongRange minimum="18" maximum="100" />
+				</p:inputText>
+				<p:outputLabel for="sexo" value="Sexo" />
+
+				<p:selectOneRadio id="sexo" value="#{pessoaController.pessoa.sexo}"
+					required="true" requiredMessage="Campo sexo obrigatório">
+					<f:selectItem id="masc" itemLabel="Masculino" itemValue="M" />
+					<f:selectItem id="fem" itemLabel="Feminino" itemValue="F" />
+				</p:selectOneRadio>
+
+				<p:commandButton value="Salvar"
+					actionListener="#{pessoaController.salvar}" update="formCliente" />
+			</p:panelGrid>
+		</p:panel>
+
+		<p:dataTable value="#{pessoaController.pessoas}" var="pessoa" emptyMessage="Foram encontrados 0 registros">
+			<p:column headerText="Nome" sortBy="#{pessoa.nome}">
+				<p:outputLabel value="#{pessoa.nome}" />
+			</p:column>
+			<p:column headerText="Idade" sortBy="#{pessoa.idade}">
+				<p:outputLabel value="#{pessoa.idade}" />
+			</p:column>
+			<p:column headerText="Sexo" sortBy="#{pessoa.sexo}">
+				<p:outputLabel value="#{pessoa.sexo}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
