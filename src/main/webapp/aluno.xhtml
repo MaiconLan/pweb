@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Aluno</title>
+</h:head>
+
+<h:body>
+	<h:form id="formAluno">
+		<p:growl autoUpdate="true" />
+		<p:panel id="panelAluno" header="Aluno">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome:" for="nome" />
+				<p:inputText id="nome" value="#{alunoController.aluno.nome}"
+					required="true" requiredMessage="Campo nome obrigatório" />
+
+				<p:outputLabel for="nota1" value="Nota 1" />
+				<p:inputText id="nota1" value="#{alunoController.aluno.nota1}"
+					required="true" requiredMessage="Campo nota1 obrigatório">
+					<f:validateDoubleRange minimum="0" maximum="10" />
+				</p:inputText>
+
+				<p:outputLabel for="nota2" value="Nota 2" />
+				<p:inputText id="nota2" value="#{alunoController.aluno.nota2}"
+					required="true" requiredMessage="Campo nota2 obrigatório">
+					<f:validateDoubleRange minimum="0" maximum="10" />
+				</p:inputText>
+
+				<p:outputLabel for="nota3" value="Nota 3" />
+				<p:inputText id="nota3" value="#{alunoController.aluno.nota3}"
+					required="true" requiredMessage="Campo nota3 obrigatório">
+					<f:validateDoubleRange minimum="0" maximum="10" />
+				</p:inputText>
+
+				<p:commandButton value="Salvar"
+					actionListener="#{alunoController.salvar}"
+					update="formTableAluno formAluno" />
+			</p:panelGrid>
+		</p:panel>
+	</h:form>
+
+	<h:form id="formTableAluno">
+		<p:dataTable value="#{alunoController.alunos}" var="aluno"
+			emptyMessage="Foram encontrados 0 registros" reflow="true"
+			paginator="true" rows="10">
+
+			<p:column headerText="Nome" sortBy="#{aluno.nome}">
+				<p:outputLabel value="#{aluno.nome}" />
+			</p:column>
+
+			<p:column headerText="Media" sortBy="#{aluno.media}">
+				<p:outputLabel value="#{aluno.media}">
+					<f:convertNumber maxFractionDigits="2"/>
+				</p:outputLabel>
+			</p:column>
+
+			<p:column headerText="Situação" sortBy="#{aluno.situacao}">
+				<p:outputLabel value="#{aluno.situacao}" />
+			</p:column>
+
+			<p:column headerText="Ações">
+				<p:commandButton icon="ui-icon-pencil"
+					actionListener="#{alunoController.editar}" update="formAluno">
+					<f:attribute name="alunoSelecionado" value="#{aluno}" />
+				</p:commandButton>
+
+				<p:commandButton icon="ui-icon-trash"
+					actionListener="#{alunoController.excluir}"
+					update="formAluno formTableAluno">
+
+					<p:confirm header="Confirmação" message="Excluir Aluno?"
+						icon="ui-icon-alert" />
+					<f:attribute name="alunoExcluido" value="#{aluno}" />
+				</p:commandButton>
+
+			</p:column>
+
+			<f:facet name="footer">
+				<p:outputLabel
+					value="Foram encontrados #{alunoController.alunos.size()} registros." />
+			</f:facet>
+		</p:dataTable>
+
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+			<p:commandButton value="Sim" type="button"
+				styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			<p:commandButton value="Não" type="button"
+				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		</p:confirmDialog>
+	</h:form>
+
+</h:body>
+</html>
