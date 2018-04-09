@@ -38,8 +38,9 @@
 
 		<dependency>
 			<groupId>com.github.adminfaces</groupId>
-			<artifactId>admin-persistence</artifactId>
-			<version>1.0.0-RC12</version>
+			<artifactId>admin-theme</artifactId>
+			<version>1.0.0-RC13</version>
+			<!--<classifier>dev</classifier> uncompressed theme.css -->
 		</dependency>
 	</dependencies>
 
