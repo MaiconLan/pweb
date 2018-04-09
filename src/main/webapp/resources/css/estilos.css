@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+html, body {
+	height: 90%;
+	widows: 100%;
+	color: black;
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	background-color: #8bd7f3;
+	font-size: 13px;
+}
+
+h1, h2, h3 {
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+
+.logo {
+	margin-left: 20px;
+	position: absolute;
+}
+
+.conteudo {
+	overflow: hidden;
+	position: absolute;
+	width: 79%;
+	bottom: 10xp;
+}
+
+.page-footer {
+	bottom: 0;
+	width: 100%;
+}
+
+#rodape {
+	position: relative;
+	bottom: 0px;
+	width: 96%;
+}
+
+.login {
+	width: 400px;
+	height: 300px;
+	margin-top: 10%;
+	margin-bottom: 10%;
+	border: 2px solid #689f38;
+	padding: 10px;
+	background: #fff;
+}
+
+.cadastro-pessoa, .cadastro-login, .cadastro-convenio,
+	.cadastro-solicitacao, .cadastro-profissao {
+	width: 800px;
+	border-radius: 10px 80px 10px 80px;
+	padding: 50px;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	background: #fff;
+	background-color: #fff;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.lista-pessoas {
+	padding: 1%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	background: #fff;
+}
+
+.lista {
+	border-radius: 10px 80px 10px 80px;
+	padding: 50px;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	background: #fff;
+	background-color: #fff;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.redacao {
+	border-radius: 10px 80px 10px 80px;
+	padding: 1%;
+	margin-top: 1%;
+	margin-bottom: 5%;
+	background: #fff;
+	background-color: #fff;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.error-button {
+	padding: 1%;
+	margin-top: 1%;
+	margin-bottom: 5%;
+	width: 80px;
+	height: 160px;
+	background-color: #ff7979;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.link {
+	color: #ff0006;
+	text-decoration: none;
+}
+
+.link:hover {
+	color: #ff0006;
+	font-weight: bold;
+}
