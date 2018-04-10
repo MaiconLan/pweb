@@ -42,6 +42,12 @@
 			<version>1.0.0-RC13</version>
 			<!--<classifier>dev</classifier> uncompressed theme.css -->
 		</dependency>
+
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>font-awesome</artifactId>
+			<version>4.7.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

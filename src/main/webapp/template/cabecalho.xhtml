@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<ui:composition template="layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<ui:define name="cabecalho">
+		<h:form>
+			<h:graphicImage library="img" name="icon-siac.png" width="150" />
+			<p:menubar>
+				<p:submenu label="Cadastros" icon="fa fa-fw fa-edit">
+					<p:menuitem value="Aluno" icon="fa fa-fw fas fa-user-md" />
+					<p:menuitem value="Disciplina" icon="fa fa-fw far fa-id-card" />
+					<p:menuitem value="Login" icon="fa fa-fw fas fa-user-md" />
+					<p:menuitem value="Paciente" icon="fa fa-fw fa-user-plus" />
+					<p:menuitem value="Profissão" icon="fa fa-fw fa-briefcase" />
+				</p:submenu>
+			</p:menubar>
+		</h:form>
+	</ui:define>
+</ui:composition>
