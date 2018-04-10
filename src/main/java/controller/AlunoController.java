@@ -11,6 +11,7 @@ import javax.faces.event.ActionEvent;
 
 import business.AlunoBusiness;
 import model.Aluno;
+import model.Pessoa;
 
 @ViewScoped
 @ManagedBean(name="alunoController")
@@ -27,6 +28,15 @@ public class AlunoController implements Serializable {
 	@PostConstruct
 	public void initialize() {
 		novoAluno();
+		for (int i = 0; i < 11; i++) {
+			aluno.setNome("Teste: " + i);
+			aluno.setNota1(10D);
+			aluno.setNota2(9D);
+			aluno.setNota3(4D);
+			alunos.add(aluno);
+			novoAluno();
+		}
+		
 		alunoBusiness = new AlunoBusiness();
 	}
 

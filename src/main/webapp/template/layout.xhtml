@@ -15,7 +15,7 @@
 	<div id="cabecalho">
 		<ui:insert name="cabecalho">
 			<h:form>
-				<h:graphicImage library="img" name="icon-escola.png" width="100" />
+				<h:graphicImage library="img" name="icon-escola.png" width="50" />
 				<p:outputLabel styleClass="titulo" value="Faça parte da escola SIAC" />
 				<p:menubar>
 					<p:submenu label="Cadastros" icon="fa fa-fw fa-edit">
@@ -35,6 +35,10 @@
 		</ui:insert>
 	</div>
 
-	<footer>Utilizando facelets</footer>
+	<div id="rodape">
+		<ui:insert name="rodape">
+			<ui:include src="rodape.xhtml" />
+		</ui:insert>
+	</div>
 </h:body>
 </html>
