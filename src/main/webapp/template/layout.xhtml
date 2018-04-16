@@ -14,29 +14,34 @@
 
 	<div id="cabecalho">
 		<ui:insert name="cabecalho">
-			<h:form styleClass="formCabecalho">
-				<h:graphicImage library="img" name="icon-escola.png" width="50" />
+			<h:form styleClass="form-cabecalho">
+			<h:link outcome="template/layout"><h:graphicImage library="img" name="icon-escola.png" width="50" /></h:link>
+				
 				<p:outputLabel styleClass="titulo" value="Faça parte da escola SIAC" />
 			</h:form>
 
 			<h:form>
-				<p:slideMenu styleClass="menu" style="width:250px;">
-					<p:submenu label="Cadastros" icon="fa fa-fw fa-edit">
-						<p:menuitem value="Aluno" icon="fa fa-fw fas fa-user" />
+				<p:slideMenu styleClass="menu" backLabel="Voltar" >
+					<p:submenu label="Cadastros" icon="fa fa-fw fa-edit" >
+						<p:menuitem value="Aluno" icon="fa fa-fw fas fa-user" url="../aluno.xhtml"/>
+						<p:menuitem value="Disciplina" icon="fa fa-fw far fa-id-card" />
+						<p:menuitem value="Matrícula" icon="fa fa-fw fa-user-plus" />
+					</p:submenu>
+					
+					<p:submenu label="Relatórios" icon="fa fa-fw fa-briefcase">
+						<p:menuitem value="Aluno" icon="fa fa-fw fas fa-user" url="../aluno.xhtml"/>
 						<p:menuitem value="Disciplina" icon="fa fa-fw far fa-id-card" />
 						<p:menuitem value="Matrícula" icon="fa fa-fw fa-user-plus" />
 					</p:submenu>
 				</p:slideMenu>
 			</h:form>
 
-
 		</ui:insert>
 	</div>
 
-
 	<div id="conteudo">
 		<ui:insert name="conteudo">
-
+	
 		</ui:insert>
 	</div>
 
