@@ -36,12 +36,12 @@
 			<scope>provided</scope>
 		</dependency>
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.github.adminfaces</groupId> -->
-<!-- 			<artifactId>admin-theme</artifactId> -->
-<!-- 			<version>1.0.0-RC13</version> -->
-<!--<classifier>dev</classifier> uncompressed theme.css -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>com.github.adminfaces</groupId>
+			<artifactId>admin-theme</artifactId>
+			<version>1.0.0-RC13</version>
+			<!--<classifier>dev</classifier> uncompressed theme.css -->
+		</dependency>
 
 		<dependency>
 			<groupId>org.webjars</groupId>
