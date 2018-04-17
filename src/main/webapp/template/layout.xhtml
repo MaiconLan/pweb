@@ -11,44 +11,62 @@
 	<h:outputStylesheet library="css" name="estilos.css" />
 </h:head>
 <h:body>
-
 	<div id="cabecalho">
 		<ui:insert name="cabecalho">
 			<h:form styleClass="form-cabecalho">
-			<h:link outcome="template/layout"><h:graphicImage library="img" name="icon-escola.png" width="50" /></h:link>
-				
+				<h:link outcome="template/layout">
+					<h:graphicImage library="img" name="icon-escola.png" width="50" />
+				</h:link>
+
 				<p:outputLabel styleClass="titulo" value="Faça parte da escola SIAC" />
 			</h:form>
+		</ui:insert>
+	</div>
+
+
+	<p:layout>
+		<p:layoutUnit position="west" resizable="true">
 
 			<h:form>
-				<p:slideMenu styleClass="menu" backLabel="Voltar" >
-					<p:submenu label="Cadastros" icon="fa fa-fw fa-edit" >
-						<p:menuitem value="Aluno" icon="fa fa-fw fas fa-user" url="../aluno.xhtml"/>
+				<p:slideMenu styleClass="menu" backLabel="Voltar">
+					<p:submenu label="Cadastros" icon="fa fa-fw fa-edit">
+						<p:menuitem value="Aluno" icon="fa fa-fw fas fa-user"
+							url="/aluno.xhtml" />
+							<p:menuitem value="Cliente" icon="fa fa-fw fas fa-user"
+							url="/cliente.xhtml" />
 						<p:menuitem value="Disciplina" icon="fa fa-fw far fa-id-card" />
 						<p:menuitem value="Matrícula" icon="fa fa-fw fa-user-plus" />
 					</p:submenu>
-					
+
 					<p:submenu label="Relatórios" icon="fa fa-fw fa-briefcase">
-						<p:menuitem value="Aluno" icon="fa fa-fw fas fa-user" url="../aluno.xhtml"/>
+						<p:menuitem value="Aluno" icon="fa fa-fw fas fa-user"
+							url="/aluno.xhtml" />
 						<p:menuitem value="Disciplina" icon="fa fa-fw far fa-id-card" />
 						<p:menuitem value="Matrícula" icon="fa fa-fw fa-user-plus" />
 					</p:submenu>
+					<p:menuitem value="Login" icon="fa fa-fw fa-user" url="/login.xhtml"/>
 				</p:slideMenu>
 			</h:form>
 
-		</ui:insert>
-	</div>
+		</p:layoutUnit>
 
-	<div id="conteudo">
-		<ui:insert name="conteudo">
-	
-		</ui:insert>
-	</div>
+		<p:layoutUnit position="center" resizable="true">
+			<div id="conteudo">
+				<ui:insert name="conteudo">
 
-	<div id="rodape">
-		<ui:insert name="rodape">
-			<ui:include src="rodape.xhtml" />
-		</ui:insert>
-	</div>
+				</ui:insert>
+			</div>
+		</p:layoutUnit>
+
+		<!-- 		<p:layoutUnit position="south" resizable="true"> -->
+		<!-- 			<div id="rodape"> -->
+		<!-- 				<ui:insert name="rodape"> -->
+		<!-- 					<ui:include src="rodape.xhtml" /> -->
+		<!-- 				</ui:insert> -->
+		<!-- 			</div> -->
+		<!-- 		</p:layoutUnit> -->
+	</p:layout>
+
+
 </h:body>
 </html>

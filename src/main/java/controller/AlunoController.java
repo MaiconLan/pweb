@@ -11,7 +11,6 @@ import javax.faces.event.ActionEvent;
 
 import business.AlunoBusiness;
 import model.Aluno;
-import model.Pessoa;
 
 @ViewScoped
 @ManagedBean(name="alunoController")
@@ -40,6 +39,11 @@ public class AlunoController implements Serializable {
 		alunoBusiness = new AlunoBusiness();
 	}
 
+	public String navegar() {
+		return "cliente";
+	}
+	
+	
 	public void editar(ActionEvent event) {
 		setAluno((Aluno) event.getComponent().getAttributes().get("alunoSelecionado"));
 	}

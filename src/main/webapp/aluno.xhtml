@@ -36,6 +36,9 @@
 					<p:commandButton value="Salvar"
 						actionListener="#{alunoController.salvar}"
 						update="formTableAluno formAluno" />
+
+					<p:commandButton value="Próximo"
+						action="#{alunoController.navegar}" immediate="true" ajax="false" />
 				</p:panelGrid>
 			</p:panel>
 		</h:form>

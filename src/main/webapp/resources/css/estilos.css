@@ -48,12 +48,12 @@ h1, h2, h3 {
 }
 
 #conteudo {
-	position: relative;
+	position: absolute;
 }
 
 .conteudo {
 	overflow: hidden;
-	position: absolute;
+	position: relative;
 	width: 79%;
 	bottom: 10xp;
 }
@@ -64,7 +64,7 @@ h1, h2, h3 {
 }
 
 #rodape {
-	position: relative;
+	position: absolute;
 	bottom: 0px;
 	width: 100%;
 }
