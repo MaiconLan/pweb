@@ -2,11 +2,21 @@ package model;
 
 public class Pessoa {
 
+	private Long idPessoa;
+
 	private String nome;
 
 	private Integer idade;
 
 	private String sexo;
+
+	public Long getIdPessoa() {
+		return idPessoa;
+	}
+
+	public void setIdPessoa(Long idPessoa) {
+		this.idPessoa = idPessoa;
+	}
 
 	public String getNome() {
 		return nome;

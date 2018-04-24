@@ -32,6 +32,10 @@ public class PessoaController implements Serializable {
 	/**
 	 * 
 	 */
+	private String caminhoArquivoEnviado = "";
+
+	private UploadedFile arquivoEnviado = null;
+
 	private static final long serialVersionUID = 1L;
 
 	private Pessoa pessoa = new Pessoa();
@@ -40,18 +44,18 @@ public class PessoaController implements Serializable {
 
 	@PostConstruct
 	public void initialize() {
-		for (int i = 0; i < 21; i++) {
-			pessoa.setNome("Teste: " + i);
-			pessoa.setIdade(18 + i);
-			pessoa.setSexo(i % 2 == 0 ? "M" : "F");
-			pessoas.add(pessoa);
-			pessoa = new Pessoa();
-		}
+		// for (int i = 0; i < 21; i++) {
+		// pessoa.setNome("Teste: " + i);
+		// pessoa.setIdade(18 + i);
+		// pessoa.setSexo(i % 2 == 0 ? "M" : "F");
+		// pessoas.add(pessoa);
+		// pessoa = new Pessoa();
+		// }
 	}
 
 	public void upload(FileUploadEvent event) {
-
 		try {
+			limparCache();
 			// UploadedFile uploadedFile = event.getFile();
 			// File file = new File("C:\\uploads", uploadedFile.getFileName());
 			// OutputStream out = new FileOutputStream(file);
@@ -60,15 +64,10 @@ public class PessoaController implements Serializable {
 
 			UploadedFile x = event.getFile();
 			Path t = Files.createTempFile(null, null);
-//			Files.copy(x.getInputstream(), t, StandardCopyOption.REPLACE_EXISTING);
+			Files.copy(x.getInputstream(), t, StandardCopyOption.REPLACE_EXISTING);
 
-			Path origem = Paths.get(t.toString());
-			Path destino = Paths.get("C:\\uploads\\" + x.getFileName());
-			
-			System.out.println(t.toString());
+			caminhoArquivoEnviado = t.toString();
 
-			Files.copy(origem, destino, StandardCopyOption.REPLACE_EXISTING);
-			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 
@@ -85,11 +84,26 @@ public class PessoaController implements Serializable {
 		pessoas.remove((Pessoa) event.getComponent().getAttributes().get("pessoaExcluida"));
 	}
 
-	public void salvar() {
-		pessoas.add(pessoa);
-		addMessage("Salvo com sucesso", "Pessoa " + pessoa.getNome() + " salvo com sucesso!");
+	public void limparCache() {
+		arquivoEnviado = null;
+		caminhoArquivoEnviado = "";
+	}
 
-		pessoa = new Pessoa();
+	public void salvar() {
+		try {
+			pessoas.add(pessoa);
+			Path origem = Paths.get(caminhoArquivoEnviado);
+			Path destino = Paths.get("C:\\uploads\\" + pessoa.getIdPessoa() + "_" + pessoa.getNome() + ".png");
+
+			System.out.println(caminhoArquivoEnviado);
+			Files.copy(origem, destino, StandardCopyOption.REPLACE_EXISTING);
+
+			addMessage("Salvo com sucesso", "Pessoa " + pessoa.getNome() + " salvo com sucesso!");
+			pessoa = new Pessoa();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void addMessage(String mensagem, String detalhe) {
