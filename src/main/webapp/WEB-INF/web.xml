@@ -12,6 +12,11 @@
 		<param-name>primefaces.THEME</param-name>
 		<param-value>admin</param-value>
 	</context-param>
+	
+	<context-param>
+		<param-name>primefaces.UPLOADER</param-name>
+		<param-value>auto</param-value>
+	</context-param>
 
 	<context-param>
 		<param-name>primefaces.FONT_AWESOME</param-name>
