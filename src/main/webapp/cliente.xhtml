@@ -12,8 +12,9 @@
 			<p:panel id="panelCliente" header="Cliente">
 				<p:panelGrid columns="2">
 					<p:outputLabel value="Id:" for="idPessoa" />
-					<p:inputText id="idPessoa" value="#{pessoaController.pessoa.idPessoa}"
-						required="true" requiredMessage="Campo id obrigatório" />
+					<p:inputText id="idPessoa"
+						value="#{pessoaController.pessoa.idPessoa}" required="true"
+						requiredMessage="Campo id obrigatório" />
 					<p:outputLabel value="Nome:" for="nome" />
 					<p:inputText id="nome" value="#{pessoaController.pessoa.nome}"
 						required="true" requiredMessage="Campo nome obrigatório" />
@@ -31,6 +32,7 @@
 					</p:selectOneRadio>
 
 					<p:commandButton value="Salvar"
+						styleClass="btn-block btn-success btn-flat"
 						actionListener="#{pessoaController.salvar}"
 						update="formTableCliente formCliente" />
 
@@ -51,9 +53,10 @@
 		</h:form>
 
 		<h:form id="formTableCliente">
-			<p:dataTable value="#{pessoaController.pessoas}" var="pessoa"
+			<p:dataTable id="tableClientes" value="#{pessoaController.pessoas}" var="pessoa"
 				emptyMessage="Foram encontrados 0 registros" reflow="true"
-				paginator="true" rows="10">
+				paginator="true" rows="10" 
+				rowStyleClass="#{pessoa.idade>80?'vermelho':'verde'}">
 
 				<p:column headerText="Nome" sortBy="#{pessoa.nome}">
 					<p:outputLabel value="#{pessoa.nome}" />
@@ -67,7 +70,7 @@
 					<p:outputLabel value="#{pessoa.sexo}" />
 				</p:column>
 
-				<p:column headerText="Ações">
+				<p:column headerText="Ações" exportable="false">
 					<p:commandButton icon="ui-icon-pencil"
 						actionListener="#{pessoaController.editar}" update="formCliente">
 						<f:attribute name="pessoaSelecionada" value="#{pessoa}" />
@@ -89,6 +92,10 @@
 						value="Foram encontrados #{pessoaController.pessoas.size()} registros." />
 				</f:facet>
 			</p:dataTable>
+
+			<p:commandButton ajax="false" immediate="true" value="Exportar">
+				<p:dataExporter type="pdf" target="tableClientes" fileName="clientes"/>
+			</p:commandButton>
 
 			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 				<p:commandButton value="Sim" type="button"

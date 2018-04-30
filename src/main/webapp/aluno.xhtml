@@ -33,11 +33,11 @@
 						<f:validateDoubleRange minimum="0" maximum="10" />
 					</p:inputText>
 
-					<p:commandButton value="Salvar"
+					<p:commandButton value="Salvar" styleClass="btn-block btn-success btn-flat"
 						actionListener="#{alunoController.salvar}"
 						update="formTableAluno formAluno" />
 
-					<p:commandButton value="Próximo"
+					<p:commandButton value="Próximo" styleClass="btn-block btn-info btn-flat"
 						action="#{alunoController.navegar}" immediate="true" ajax="false" />
 				</p:panelGrid>
 			</p:panel>

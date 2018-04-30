@@ -9,6 +9,10 @@ html, body {
 	font-size: 13px;
 }
 
+.ui-datatable {
+	font-size: 55px;
+}
+
 h1, h2, h3 {
 	font-size: 24px;
 	font-style: normal;
@@ -137,4 +141,14 @@ h1, h2, h3 {
 .link:hover {
 	color: #ff0006;
 	font-weight: bold;
+}
+
+.vermelho {
+	background-color: #EF0000!important;
+	color: #FFFFFF;
+}
+
+.verde {
+	background-color: #008000!important;
+	color: #FFFFFF;
 }

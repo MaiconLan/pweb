@@ -15,10 +15,11 @@
 				<p:outputLabel value="Senha" for="senha" />
 				<p:password id="senha" value="#{loginController.usuario.senha}" />
 
-				<p:commandButton value="logar" action="#{loginController.logar}" >
+				<p:commandButton value="logar" action="#{loginController.logar}"
+					styleClass="btn-block btn-info btn-flat">
 					<p:resetInput target="panelLogin" />
 				</p:commandButton>
-				
+
 			</p:panelGrid>
 		</h:form>
 	</ui:define>
