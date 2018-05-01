@@ -1,13 +1,70 @@
 package model;
 
+import java.util.Calendar;
+
 public class Aluno {
 
+	private Long idAluno;
 	private String nome;
+	private Calendar nascimento;
+	private String sexo;
+	private Endereco endereco;
+	private String email;
+	private String telefone;
+
 	private String situacao;
 	private Double nota1;
 	private Double nota2;
 	private Double nota3;
 	private Double media;
+
+	public Long getIdAluno() {
+		return idAluno;
+	}
+
+	public void setIdAluno(Long idAluno) {
+		this.idAluno = idAluno;
+	}
+
+	public Calendar getNascimento() {
+		return nascimento;
+	}
+
+	public void setNascimento(Calendar nascimento) {
+		this.nascimento = nascimento;
+	}
+
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 
 	public String getNome() {
 		return nome;

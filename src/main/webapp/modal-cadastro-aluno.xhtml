@@ -1,0 +1,78 @@
+<ui:composition template="template/layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<h:form id="formAluno">
+		<p:growl autoUpdate="true" />
+		<p:panel id="panelAluno" header="Aluno">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome:" for="nome" />
+				<p:inputText id="nome" value="#{alunoController.aluno.nome}"
+					required="true" requiredMessage="Campo nome obrigatório" />
+
+				<p:outputLabel for="nascimento" value="Nascimento" />
+				<p:calendar value="#{alunoController.aluno.nascimento}">
+
+					<p:outputLabel for="genero" value="Gênero" />
+					<p:selectBooleanButton id="genero" offLabel="M" onLabel="F"
+						required="true" requiredMessage="Campo gênero obrigatório"
+						value="#{alunoController.aluno.genero}" />
+
+					<p:outputLabel for="rua" value="Rua" />
+					<p:inputText id="rua" value="#{alunoController.aluno.endereco.rua}"
+						requiredMessage="Campo endereço obrigatório">
+					</p:inputText>
+
+					<p:outputLabel for="numero" value="Número" />
+					<p:inputText id="endereco"
+						value="#{alunoController.aluno.endereco.numero}"
+						requiredMessage="Campo número obrigatório">
+					</p:inputText>
+
+					<p:outputLabel for="bairro" value="Bairro" />
+					<p:inputText id="bairro"
+						value="#{alunoController.aluno.endereco.bairro}"
+						requiredMessage="Campo bairro obrigatório">
+					</p:inputText>
+
+					<p:outputLabel for="cidade" value="Cidade" />
+					<p:inputText id="cidade"
+						value="#{alunoController.aluno.endereco.cidade}"
+						requiredMessage="Campo cidade obrigatório">
+					</p:inputText>
+
+					<p:outputLabel for="uf" value="UF" />
+					<p:selectOneMenu value="#{alunoController.aluno.endereco.uf}"
+						required="true" converter=""
+						requiredMessage="Campo UF de seleção obrigatória">
+						<f:selectItem itemLabel="Selecione" />
+						<f:selectItems value="#{alunoController.ufs}" var="uf"
+							itemValue="#{uf}" itemLabel="#{uf.nome}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="email" value="Email" />
+					<p:inputText id="email" value="#{alunoController.aluno.email}"
+						required="true" requiredMessage="Campo e-mail obrigatório">
+					</p:inputText>
+
+					<p:outputLabel for="telefone" value="Telefone" />
+					<p:inputText id="telefone"
+						value="#{alunoController.aluno.telefone}" />
+
+					<p:commandButton value="Salvar"
+						styleClass="btn-block btn-success btn-flat"
+						actionListener="#{alunoController.salvar}"
+						update="formTableAluno formAluno" />
+
+					<p:commandButton value="Próximo"
+						styleClass="btn-block btn-info btn-flat"
+						action="#{alunoController.navegar}" immediate="true" ajax="false" />
+			</p:panelGrid>
+		</p:panel>
+	</h:form>
+
+</ui:composition>
